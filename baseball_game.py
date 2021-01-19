@@ -306,6 +306,8 @@ def get_validated_number_from_user():
         user_input = input("Input guess number : ")
         if is_validated_number(user_input):
             break
+        elif user_input == "0":
+            break
         else:
             print("Wrong Input, Input again")
 
@@ -313,7 +315,7 @@ def get_validated_number_from_user():
 
 def get_yes_or_no_from_user():
     exit_flag = None
-    
+
     while True:
         user_input = input("You win, one more(Y/N)?")
         if is_yes(user_input):
@@ -338,6 +340,9 @@ def main():
         # 위의 코드를 포함하여 자유로운 수정이 가능함
         while True:
             user_input = get_validated_number_from_user()
+            if (user_input == "0"):
+                exit_flag = True
+                break
             result = get_strikes_or_ball(user_input, random_number)
 
             print(f"Strikes : {result[0]} , Balls : {result[1]}")
